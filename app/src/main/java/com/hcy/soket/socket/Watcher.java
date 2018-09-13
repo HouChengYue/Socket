@@ -5,6 +5,11 @@ package com.hcy.soket.socket;
  * QQ 437286343
  */
 public class Watcher {
-
+    static {
+        System.loadLibrary("native-lib");
+    }
+//创建监听
     public native void creatWatcher(String userId);
+// 连接服务端
+    public native void connectMonitor();
 }

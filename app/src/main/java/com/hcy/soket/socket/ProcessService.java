@@ -28,7 +28,10 @@ public class ProcessService extends Service {
     public void onCreate() {
         super.onCreate();
         Watcher lWatcher = new Watcher();
-        lWatcher.creatWatcher(String.valueOf(Process.myUid()));
+        String UID = String.valueOf(Process.myUid());
+        Log.e(TAG, "onCreate: UID"+UID);
+        lWatcher.creatWatcher(UID);
+        lWatcher.connectMonitor();
         Timer timer = new Timer();
 //        定时器
 
@@ -39,6 +42,6 @@ public class ProcessService extends Service {
                 i++;
 
             }
-        }, 0, 1000 * 3);
+        }, 0, 1000 * 1);
     }
 }
